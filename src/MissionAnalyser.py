@@ -13,9 +13,10 @@ E.g. Payload --> Mass, Dimensions, Flight objective, Class
 Output Vector: by default null; 
 '''
 
-import pickle       # For serialise/deserialise
-import Rocket       # Rocket class
-
+import pickle                   # For serialise/deserialise
+import Rocket                   # Rocket class
+import helper_functions
+import physics_constraints
 
 # Functions
 def load(name, path="./rockets/"):
@@ -23,16 +24,17 @@ def load(name, path="./rockets/"):
 
 
 # List of all design constraints - remember these are ranges, not necessarily exact values
-constraints = [ ["apogee", "flight_time", "ground_hit_velocity", "max_velocity", "radial_drift"],       # Flight Constraints
+constraints = [ ["apogee", "flight_time", "max_velocity"],                                              # Flight Constraints
+                ["radial_drift", "safety_factor", "ground_hit_velocity"],                               # Safety Constraints
                 ["class", "cost"],                                                                      # Team Limitations
                 ["payload_mass", "payload_volume"],                                                     # Payload Characteristics
                 ["num_stages"],                                                                         # Staging Requirements
-                ["num_motors", "Isp", "burn_time", "thrust_limits"]                                     # Engine Characteristics
+                ["num_motors", "isp", "burn_time", "thrust_limits"]                                     # Engine Characteristics
               ]
 
-constraints_flat = [item for j in constraints for item in j]
+constraints_flat = helper_functions.flat_2d_array(constraints)
 
-rocket_focus = {"Payload": [2], "Staging": [3], "Custom": []}                                           # Top level objectives
+rocket_objectives = {"Payload": [1,3], "Staging": [1,4], "Novel Propulsion": [1,5], "Custom": []}       # Top level objectives
 
 defined_constraints = {}
 
@@ -44,13 +46,12 @@ while True:
     if opt == 1:
         name = input("\nEnter the name of your new rocket: ")
         print("")
-        [print(f"{i}. {n}") for i,n in enumerate(rocket_focus)]
-        focus_opt = int(input("Select your rocket focus: "))
+        [print(f"{i}. {n}") for i,n in enumerate(rocket_objectives)]
+        objectives_opt = int(input("Select your rocket objective: "))
 
         # Highlights mandatory fields
-        enforced_constraints = [constraints[i] for i in rocket_focus[list(rocket_focus)[focus_opt]]]
-        enforced_constraints = [item for j in enforced_constraints for item in j]
-
+        enforced_constraints = [constraints[i] for i in rocket_objectives[list(rocket_objectives)[objectives_opt]]]
+        enforced_constraints = helper_functions.flat_2d_array(enforced_constraints)
         break
         
     elif opt == 2:
@@ -67,10 +68,10 @@ while True:
 while True:
 
     print("")
-    count = 0                                                                                           # Because we're code noobs apparently
+    count = 0                                                                                           
     for const in constraints_flat:
         if const in enforced_constraints:
-            try: print(f"{count}. (REQUIRED) {const}: {defined_constraints[const]}")                    # More noob stuff
+            try: print(f"{count}. (REQUIRED) {const}: {defined_constraints[const]}")                    
             except: print(f"{count}. (REQUIRED) {const}")
         else: 
             try: print(f"{count}. {const}: {defined_constraints[const]}")
@@ -87,21 +88,26 @@ while True:
             break
 
         else:
-            print("\nBroski more data pls\n")
+            print("\nPlease define all required constraints before saving\n")
             continue
 
     user_const = user_const.split()
 
-    if (float(user_const[1]) > float(user_const[2]) or float(user_const[1]) < 0 or float(user_const[2]) < 0):
-        print("\nMake sure the lower bound is smaller than the upper bound and that both values are +ve.")
+    try:
+        if (float(user_const[1]) > float(user_const[2]) or float(user_const[1]) < 0 or float(user_const[2]) < 0):
+            print("\nMake sure the lower bound is smaller than the upper bound and that both values are +ve.")
+            continue
+    except:
+        print("\nThere was an unexpected input. Try again")
         continue
-    
-    # One liner cos we're cool
+
     defined_constraints[constraints_flat[int(user_const[0])]] = [float(user_const[1]), float(user_const[2])]
 
 
 # Evaluate design envelopes 
 # Very basic, idea is that Systems expands this!
 
+rocket = physics_constraints.calculate_physics_constraints(rocket)
 
-[rocket.add_constraint(i, j) for i, j in zip(["min_impulse", "mass", "wind_lims"])]
+print("\nDefined rocket constraints:")
+print(rocket.show_constraints())

@@ -11,6 +11,10 @@ class Rocket:
     def add_constraint (self, key, value):
         self.constraints[key] = value
 
+    
+    def show_constraints (self):
+        return(self.constraints)
+
 
     def validate_rocket (self):
         None
