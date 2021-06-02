@@ -1,5 +1,5 @@
 
-def calculate_physics_constraints(rocket, *args, **kwargs):
+def calculate(rocket, *args, **kwargs):
     ## 
     rocket.add_constraint("min_impulse", [1,2])
 

@@ -8,7 +8,7 @@ class Component:
                 density,
                 mass,
                 top_position,              # [X, r and phi] coordinate representation
-                **args, **kwargs           # For additional params
+                *args, **kwargs            # For additional params
                 ):
 
         self.name = name
@@ -18,5 +18,5 @@ class Component:
         self.top_position = top_position
 
 
-    def render(self):
-        pass
+    # def render(self):
+    #     pass

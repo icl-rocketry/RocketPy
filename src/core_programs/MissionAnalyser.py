@@ -13,14 +13,14 @@ E.g. Payload --> Mass, Dimensions, Flight objective, Class
 Output Vector: by default null; 
 '''
 
-import pickle                   # For serialise/deserialise
-import Rocket                   # Rocket class
-import helper_functions
-import physics_constraints
+import pickle                                               # For serialise/deserialise
+import libraries.Rocket as Rocket                           # Rocket class
+import libraries.helper_functions as helper_functions
+import libraries.physics_constraints as physics_constraints
 
 # Functions
-def load(name, path="./rockets/"):
-    return(pickle.load(open(path+name+".pickle", "rb")))
+def load(name, path="./src/rockets/"):
+    return(pickle.load(open(path+name+".rpy", "rb")))
 
 
 # List of all design constraints - remember these are ranges, not necessarily exact values
@@ -107,7 +107,7 @@ while True:
 # Evaluate design envelopes 
 # Very basic, idea is that Systems expands this!
 
-rocket = physics_constraints.calculate_physics_constraints(rocket)
+rocket = physics_constraints.calculate(rocket)
 
 print("\nDefined rocket constraints:")
 print(rocket.show_constraints())

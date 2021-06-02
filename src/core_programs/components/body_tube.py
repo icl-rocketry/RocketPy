@@ -28,5 +28,5 @@ class BodyTube(Component):
         self.OuterD = OuterD
 
 
-    def render(self):
-        pass
+    # def render(self):
+    #     pass

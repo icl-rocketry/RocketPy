@@ -19,8 +19,8 @@ class Rocket:
     def validate_rocket (self):
         None
 
-    def save(self, path="./rockets/"):
-            pickle.dump(self, open(path+self.name+".pickle", "wb"))
+    def save(self, path="./src/rockets/"):
+            pickle.dump(self, open(path+self.name+".rpy", "wb"))
 
     # def load(self, name, path="./rockets/"):
     #     self = pickle.load(open(path+name+".pickle", "rb"))
