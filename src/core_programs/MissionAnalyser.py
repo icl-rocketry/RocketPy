@@ -1,6 +1,7 @@
 
 ''' 
 ICLR ROCKETPY - MISSION ANALYSER
+Maintained by Raihaan Usman and Luis Marques
 
 - User describes high level requirements
 - Program sets and enforces bounds based on mission objectives
@@ -13,10 +14,10 @@ E.g. Payload --> Mass, Dimensions, Flight objective, Class
 Output Vector: by default null; 
 '''
 
-import pickle                                               # For serialise/deserialise
-import libraries.Rocket as Rocket                           # Rocket class
-import libraries.helper_functions as helper_functions
-import libraries.physics_constraints as physics_constraints
+import pickle                                                                                           # For serialise/deserialise
+import libraries.Rocket as Rocket                                                                       # Rocket base class
+import libraries.helper_functions as toolbox                                                            # Helper functions             
+import libraries.physics_constraints as physics_constraints                                             # Design envelope calculations
 
 # Functions
 def load(name, path="./src/rockets/"):
@@ -27,14 +28,14 @@ def load(name, path="./src/rockets/"):
 constraints = [ ["apogee", "flight_time", "max_velocity"],                                              # Flight Constraints
                 ["radial_drift", "safety_factor", "ground_hit_velocity"],                               # Safety Constraints
                 ["class", "cost"],                                                                      # Team Limitations
-                ["payload_mass", "payload_volume"],                                                     # Payload Characteristics
+                ["payload_mass", "payload_volume"],                                                     # Payload Requirements
                 ["num_stages"],                                                                         # Staging Requirements
-                ["num_motors", "isp", "burn_time", "thrust_limits"]                                     # Engine Characteristics
+                ["num_motors", "isp", "burn_time", "thrust_limits"]                                     # Engine Requirements
               ]
 
-constraints_flat = helper_functions.flat_2d_array(constraints)
+constraints_flat = toolbox.flat_2d_array(constraints)
 
-rocket_objectives = {"Payload": [1,3], "Staging": [1,4], "Novel Propulsion": [1,5], "Custom": []}       # Top level objectives
+rocket_objectives = {"Payload": [1,3], "Staging": [1,4], "Novel Propulsion": [1,5], "Custom": []}       # Top-level objectives
 
 defined_constraints = {}
 
@@ -51,7 +52,7 @@ while True:
 
         # Highlights mandatory fields
         enforced_constraints = [constraints[i] for i in rocket_objectives[list(rocket_objectives)[objectives_opt]]]
-        enforced_constraints = helper_functions.flat_2d_array(enforced_constraints)
+        enforced_constraints = toolbox.flatten_2Darray(enforced_constraints)
         break
         
     elif opt == 2:
@@ -78,7 +79,7 @@ while True:
             except: print(f"{count}. {const}")
         count +=1
 
-    user_const = input("\nUsing SI units, set a constraint (idx lower_bound upper_bound) or type \"done\" to end the script: ")
+    user_const = input("\nUsing SI units, set a constraint (idx lower_bound upper_bound) or type \"done\" to proceed: ")
     
     if (user_const.lower()) == "done":
         
@@ -95,18 +96,16 @@ while True:
 
     try:
         if (float(user_const[1]) > float(user_const[2]) or float(user_const[1]) < 0 or float(user_const[2]) < 0):
-            print("\nMake sure the lower bound is smaller than the upper bound and that both values are +ve.")
+            print("\nERROR: Ensure the lower bound is smaller than the upper bound and that both values are +ve.")
             continue
     except:
-        print("\nThere was an unexpected input. Try again")
+        print("\nERROR: Illegal input. Try again")
         continue
 
     defined_constraints[constraints_flat[int(user_const[0])]] = [float(user_const[1]), float(user_const[2])]
 
 
 # Evaluate design envelopes 
-# Very basic, idea is that Systems expands this!
-
 rocket = physics_constraints.calculate(rocket)
 
 print("\nDefined rocket constraints:")

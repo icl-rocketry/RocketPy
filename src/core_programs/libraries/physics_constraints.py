@@ -1,12 +1,14 @@
+# Design envelope calculations
+# Just stub code, idea is that Systems expands this!
 
 def calculate(rocket, *args, **kwargs):
-    ## 
-    rocket.add_constraint("min_impulse", [1,2])
+    ## Fancy maffs
+    rocket.add_constraint("min_impulse", value=[1,2])
 
-    ##
-    rocket.add_constraint("mass_lims", [1,2])
+    ## Fancy maffs
+    rocket.add_constraint("mass_lims", value=[1,2])
     
-    ##
-    rocket.add_constraint("wind_lims", [1,2])
+    ## Fancy maffs
+    rocket.add_constraint("wind_lims", value=[1,2])
 
-    return (rocket)
+    return(rocket)
