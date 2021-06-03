@@ -1,4 +1,5 @@
-#tesing out the Fusion 360 API
+# Testing the Fusion 360 API
+# Maintained by Ishaan Roy
 
 import adsk.core, adsk.fusion, traceback
 
