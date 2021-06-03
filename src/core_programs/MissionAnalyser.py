@@ -33,7 +33,7 @@ constraints = [ ["apogee", "flight_time", "max_velocity"],                      
                 ["num_motors", "isp", "burn_time", "thrust_limits"]                                     # Engine Requirements
               ]
 
-constraints_flat = toolbox.flat_2d_array(constraints)
+constraints_flat = toolbox.flatten_2Darray(constraints)
 
 rocket_objectives = {"Payload": [1,3], "Staging": [1,4], "Novel Propulsion": [1,5], "Custom": []}       # Top-level objectives
 
