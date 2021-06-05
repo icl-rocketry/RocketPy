@@ -16,12 +16,12 @@ Output Vector: by default null;
 
 import pickle                                                                                           # For serialise/deserialise
 import libraries.Rocket as Rocket                                                                       # Rocket base class
-import libraries.helper_functions as toolbox                                                            # Helper functions             
+import libraries.toolbox as toolbox                                                                     # Helper functions             
 import libraries.physics_constraints as physics_constraints                                             # Design envelope calculations
 
-# Functions
-def load(name, path="./src/rockets/"):
-    return(pickle.load(open(path+name+".rpy", "rb")))
+# # Functions
+# def load(name, path="./rockets/"):
+#     return(pickle.load(open(path+name+".rpy", "rb")))
 
 
 # List of all design constraints - remember these are ranges, not necessarily exact values
@@ -57,7 +57,7 @@ while True:
         
     elif opt == 2:
         name = input("\nEnter the name of your rocket: ")
-        rocket = load(name)
+        rocket = toolbox.rocket_load(name)
 
         # Retrieving data from Rocket object
         enforced_constraints = rocket.enf_const
@@ -85,6 +85,8 @@ while True:
         
         if all(const in defined_constraints for const in enforced_constraints):
             rocket = Rocket.Rocket(name, defined_constraints, enforced_constraints)
+            rocket = physics_constraints.calculate(rocket)
+
             rocket.save()
             break
 
@@ -104,9 +106,6 @@ while True:
 
     defined_constraints[constraints_flat[int(user_const[0])]] = [float(user_const[1]), float(user_const[2])]
 
-
-# Evaluate design envelopes 
-rocket = physics_constraints.calculate(rocket)
-
 print("\nDefined rocket constraints:")
-print(rocket.show_constraints())
+print(rocket.constraints)
+print(f"\nSaved final model in rockets/{name}.rpy.")

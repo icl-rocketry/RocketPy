@@ -1,0 +1,35 @@
+# Main component superclass
+
+import pickle
+
+
+class Component:
+
+    def __init__(self,                                                              # Ensure passed with completed params
+                name,            
+                *args, **kwargs):                                                   # For additional params
+        
+        # Defined things
+        self.name = name
+        self.material = "None"
+
+        # Derived things
+        self.top_position = 0                                                      # [X, r and phi] coordinate representation
+        self.density = 0
+        self.mass = 0
+        self.parameters = {}                                                        # {Parameter_name: [value, units]}
+        self.subparts = []
+        self.id = None
+
+
+    def load_parameters(self, parameters):
+        self.parameters = self.parameters | parameters
+        
+
+    def add_subpart(self, subpart):
+        self.subparts.append(subpart)                                               # List of child component objects
+
+
+    def export(self, path="./components/"):
+        pickle.dump(self, open(path+self.name+".", "wb"))
+        
