@@ -1,3 +1,7 @@
+# Interface class definition
+# Maintained by Raihaan Usman and Luis Marques
+
+
 class Interface:
     def __init__(self, 
                  component_IDs, 

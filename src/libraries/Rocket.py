@@ -1,4 +1,8 @@
+# Rocket class definition
+# Maintained by Raihaan Usman and Luis Marques
+
 import pickle
+
 
 class Rocket:
 
@@ -40,8 +44,6 @@ class Rocket:
     def save(self, path="./rockets/"):
             pickle.dump(self, open(path+self.name+".rpy", "wb"))
 
-    # def load(self, name, path="./rockets/"):
-    #     self = pickle.load(open(path+name+".pickle", "rb"))
     
 
 

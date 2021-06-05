@@ -1,4 +1,5 @@
-# A helpful bunch of functions!
+# A bunch of helpful functions!
+# Maintained by Raihaan Usman and Luis Marques
 
 import pickle
 

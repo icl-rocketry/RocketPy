@@ -6,7 +6,7 @@ Maintained by Raihaan Usman and Luis Marques
 - User describes high level requirements
 - Program sets and enforces bounds based on mission objectives
 
-There are several "Rocket Focus" targets which pre-populate the output vector
+There are several high-level "Rocket Objective" targets which pre-populate the output vector
 E.g. Payload --> Mass, Dimensions, Flight objective, Class
      Staging --> Number of Stages, Flight objective, Class
 

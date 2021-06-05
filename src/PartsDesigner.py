@@ -4,35 +4,20 @@ ICLR ROCKETPY - PARTS DESIGNER
 Maintained by Raihaan Usman and Luis Marques
 
 - Framework for rocket parts design in Fusion 360, handling realtime integration
+- Handles Component and Interface objects
 - Enforces design rules with Valispace integration
 - Creates a TCP server and interfaces with the Fusion 360 linker add-in (client)
 
 '''
 
 import pickle
-import socket                                                               # Socket API for client-server style Inter-Process Communication (IPC)
 import libraries.components.component as component
 import libraries.interfaces.interface as interface
 import libraries.toolbox as toolbox
 
-# HOST = '127.0.0.1'                                                          # Standard loopback interface address (or just localhost)
-# PORT = 4200                                                                 # Luis' idea...
-
-# with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:                # Creates socket object using IPv4 address family and TCP socket type
-#     s.bind((HOST, PORT))                                                    # Binds socket with network interface (HOST) and PORT
-#     s.listen()                                                              # Listens for RPyLinker connection requests
-#     conn, addr = s.accept()                                                 # accept() blocks and waits for incoming connection - returns tuple of (HOST, PORT)
-#     with conn:
-#         print('Connected by', addr)
-#         while True:
-#             data = conn.recv(1024)
-#             if not data:
-#                 break
-            
-#             conn.sendall(data)
 
 
-# Load rocket
+# Load rocket object
 rocket_name = input("\nEnter the name of your rocket: ")
 rocket = toolbox.rocket_load(rocket_name)
 
@@ -50,14 +35,15 @@ while True:
         comp = component(comp_name)
         
         rocket.add_component(comp)
-        print(rocket.components)
+        print(rocket.show_components())
         
     elif opt == "M 1":
         
         rocket.show_components()
         comp_id = int(input("\nSelect the component you want to edit: "))
         
-        # open fusion on that component 
+        # Launch Fusion 360 for specified component
+        continue
 
     if opt == "D 1":
     

@@ -1,5 +1,5 @@
-#Author-ICLR
-#Description-Linker to RocketPy Core
+# RPyLinker - F360 add-in client definition
+# Maintained by Raihaan Usman and Luis Marques
 
 import adsk.core, adsk.fusion, adsk.cam, traceback, socket
 
