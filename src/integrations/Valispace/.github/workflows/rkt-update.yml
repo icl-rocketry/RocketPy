@@ -1,0 +1,35 @@
+# Raihaan Usman
+# This workflow will install Python dependencies, read the JSON data from Valispace and run the merger tool.
+
+name: OpenRocket_Update
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Parsing changes
+      run: python src/OR_update.py
+      env:
+        VSP: ${{ secrets.VSP }}
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Finding a lost file
+      run: find .
