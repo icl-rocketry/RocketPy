@@ -9,4 +9,8 @@ def flatten_2Darray(array):
 
 
 def rocket_load(name, path="./rockets/"):
-    return(pickle.load(open(path+name+".rpy", "rb")))
+    try:
+        return(pickle.load(open(path+name+"/"+name+".rpy", "rb")))
+    except FileNotFoundError:
+        print("\nERROR: RPy file not found")
+        exit()

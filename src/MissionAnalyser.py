@@ -3,25 +3,21 @@
 ICLR ROCKETPY - MISSION ANALYSER
 Maintained by Raihaan Usman and Luis Marques
 
-- User describes high level requirements
-- Program sets and enforces bounds based on mission objectives
+- Systems engineers describe high-level objectives and requirements
+- Program calculates and enforces constraints from mission requirements
 
-There are several high-level "Rocket Objective" targets which pre-populate the output vector
+There are several high-level "Rocket Objective" targets which set the 'enforced constraints' vector
 E.g. Payload --> Mass, Dimensions, Flight objective, Class
      Staging --> Number of Stages, Flight objective, Class
 
 
-Output Vector: by default null; 
+'Defined Constraints' output vector: by default empty; 
 '''
 
 import pickle                                                                                           # For serialise/deserialise
 import libraries.Rocket as Rocket                                                                       # Rocket base class
 import libraries.toolbox as toolbox                                                                     # Helper functions             
-import libraries.physics_constraints as physics_constraints                                             # Design envelope calculations
-
-# # Functions
-# def load(name, path="./rockets/"):
-#     return(pickle.load(open(path+name+".rpy", "rb")))
+import libraries.systems_constraints as systems                                                         # Design envelope calculations
 
 
 # List of all design constraints - remember these are ranges, not necessarily exact values
@@ -85,7 +81,7 @@ while True:
         
         if all(const in defined_constraints for const in enforced_constraints):
             rocket = Rocket.Rocket(name, defined_constraints, enforced_constraints)
-            rocket = physics_constraints.calculate(rocket)
+            rocket = systems.calculate(rocket)
 
             rocket.save()
             break
@@ -106,6 +102,4 @@ while True:
 
     defined_constraints[constraints_flat[int(user_const[0])]] = [float(user_const[1]), float(user_const[2])]
 
-print("\nDefined rocket constraints:")
-print(rocket.constraints)
-print(f"\nSaved final model in rockets/{name}.rpy.")
+print("\nDefined rocket constraints:\n" + str(rocket.constraints) + f"\nSaved final model in rockets/{name}/{name}.rpy.")

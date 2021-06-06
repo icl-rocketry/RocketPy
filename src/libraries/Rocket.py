@@ -2,14 +2,15 @@
 # Maintained by Raihaan Usman and Luis Marques
 
 import pickle
+import os
 
 
 class Rocket:
 
     def __init__ (self, name, defined_constraints={}, enforced_constraints=[]):
         self.name = name
-        self.constraints = defined_constraints
-        self.enf_const = enforced_constraints
+        self.constraints = defined_constraints                                          # Constraints defined in Mission Analyser
+        self.enf_const = enforced_constraints                                           # List of required constraints (IDs) derived from rocket objectives
 
         # Derived
         self.components = {}
@@ -18,11 +19,13 @@ class Rocket:
         self.latest_interface_id = 0
 
 
+    # Constraint methods
     def add_constraint(self, key, value):
         self.constraints[key] = value
 
-
-    def add_component(self, component):
+    
+    # Component methods
+    def create_component(self, component):
         self.latest_component_id += 1
         component.id = self.latest_component_id
         self.components[component.id] = component
@@ -35,7 +38,8 @@ class Rocket:
                     Top position: {i.top_position}\n\
                     Density: {i.density}\n") for i in self.components]
     
-    
+
+    # Interface methods
     def add_interface(self, interface):
         self.latest_interface_id += 1
         interface.id = self.latest_interface_id
@@ -43,20 +47,21 @@ class Rocket:
 
 
     def show_interfaces(self):
-        [print(f"Name: {i.name}\n\
-                    ID: {i.id} \n\
-                    Mass: {i.mass}\n\
-                    Top position: {i.top_position}\n\
-                    Density: {i.density}\n") for i in self.components]
+        [print(f"Type: {i.name}\n\
+                    Attached component IDs: {i.attached} \n\
+                    Attached component names: {self.components[i.attached]}") for i in self.interfaces]
 
     
+    # Rocket self-validation method
     def validate_rocket(self):
         None
 
 
+    # Save!
     def save(self, path="./rockets/"):
-            pickle.dump(self, open(path+self.name+".rpy", "wb"))
-
-    
-
-
+        try:
+            pickle.dump(self, open(path+self.name+"/"+self.name+".rpy", "wb"))
+        
+        except FileNotFoundError:
+            os.mkdir(path+self.name)
+            pickle.dump(self, open(path+self.name+"/"+self.name+".rpy", "wb"))

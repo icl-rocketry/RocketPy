@@ -6,9 +6,7 @@ import pickle
 
 class Component:
     
-    def __init__(self,                                                              # Ensure passed with completed params
-                name,            
-                *args, **kwargs):                                                   # For additional params
+    def __init__(self, name):
         
         # Defined things
         self.name = name
@@ -31,5 +29,5 @@ class Component:
         self.subparts.append(subpart)                                               # List of child component objects
 
 
-    def export(self, path="./components/"):
+    def export(self, path="./exports/"):
         pickle.dump(self, open(path+self.name+"_"+self.id+".", "wb"))

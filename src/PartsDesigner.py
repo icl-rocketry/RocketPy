@@ -3,18 +3,17 @@
 ICLR ROCKETPY - PARTS DESIGNER
 Maintained by Raihaan Usman and Luis Marques
 
-- Framework for rocket parts design in Fusion 360, handling realtime integration
+- Framework for managing component-level design in Autodesk Fusion 360
 - Handles Component and Interface objects
 - Enforces design rules with Valispace integration
-- Creates a TCP server and interfaces with the Fusion 360 linker add-in (client)
+- Creates an F360Server object to interface with the Fusion 360 RPyLinker add-in (client)
 
 '''
 
 import pickle
-import libraries.components.component as component
-import libraries.interfaces.interface as interface
+import libraries.components.Component as Component
+import libraries.interfaces.Interface as Interface
 import libraries.toolbox as toolbox
-
 
 
 # Load rocket object
@@ -30,11 +29,8 @@ while True:
     opt = input("Enter choice (e.g. C 1; M 1; D 2; E): ").upper()
     
 
-    if opt == "C 1":
-        comp_name = input("\nEnter component name: ")
-        comp = component(comp_name)
-        
-        rocket.add_component(comp)
+    if opt == "C 1":        
+        rocket.add_component(Component(input("\nEnter component name: ")))
         print(rocket.show_components())
         
     elif opt == "M 1":
@@ -45,19 +41,17 @@ while True:
         # Launch Fusion 360 for specified component
         continue
 
-    if opt == "D 1":
+    # if opt == "D 1":
     
-    if opt == "C 2":
+    # if opt == "C 2":
     
-    if opt == "M 2":
+    # if opt == "M 2":
 
-    if opt == "D 2":
+    # if opt == "D 2":
 
-    if opt == "E":
+    elif opt == "E":
         break
-    
-    else:
-        continue
+
 
     
 
