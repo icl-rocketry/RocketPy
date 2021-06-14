@@ -17,6 +17,7 @@ def run(context):
             s.connect((HOST, PORT))
             s.sendall(b'Hello, world')
             data = s.recv(1024)
+            ui.messageBox(str(data))
 
     except:
         if ui:

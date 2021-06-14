@@ -1,4 +1,4 @@
-# F360 client class definition
+# F360 server class definition
 # Maintained by Raihaan Usman and Luis Marques
 
 import socket                                                                       # Socket API for client-server style Inter-Process Communication (IPC)
