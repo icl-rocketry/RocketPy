@@ -1,8 +1,8 @@
 # Rocket class definition
 # Maintained by Raihaan Usman and Luis Marques
 
-import pickle
-import os
+from libraries.components.Component import Component as Component
+import pickle, os
 
 
 class Rocket:
@@ -13,8 +13,8 @@ class Rocket:
         self.enf_const = enforced_constraints                                           # List of required constraints (IDs) derived from rocket objectives
 
         # Derived
-        self.components = {}
-        self.interfaces = {}
+        self.components = []
+        self.interfaces = []
         self.latest_component_id = 0                                                    # Counters - persistent with Rocket object
         self.latest_interface_id = 0
 
@@ -25,7 +25,8 @@ class Rocket:
 
     
     # Component methods
-    def create_component(self, component):
+    def create_component(self, name):
+        component = Component(name)
         self.latest_component_id += 1
         component.id = self.latest_component_id
         self.components[component.id] = component

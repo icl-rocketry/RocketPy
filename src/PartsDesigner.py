@@ -30,8 +30,8 @@ while True:
     
 
     if opt == "C 1":        
-        rocket.add_component(Component(input("\nEnter component name: ")))
-        print(rocket.show_components())
+        rocket.create_component(input("\nEnter component name: "))
+        rocket.show_components()
         
     elif opt == "M 1":
         
