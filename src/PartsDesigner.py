@@ -7,6 +7,7 @@ Maintained by Raihaan Usman and Luis Marques
 - Handles Component and Interface objects
 - Enforces design rules with Valispace integration
 - Creates an F360Server object to interface with the Fusion 360 RPyLinker add-in (client)
+- Maintains the dynamic Bill of Materials
 
 '''
 
