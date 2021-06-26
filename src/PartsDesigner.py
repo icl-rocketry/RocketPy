@@ -1,6 +1,6 @@
 
 ''' 
-ICLR ROCKETPY - PARTS DESIGNER
+ICLR RocketPy - PARTS DESIGNER
 Maintained by Raihaan Usman and Luis Marques
 
 - Framework for managing component-level design in Autodesk Fusion 360

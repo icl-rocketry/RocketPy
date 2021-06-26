@@ -1,6 +1,6 @@
 
 ''' 
-ICLR ROCKETPY - MISSION ANALYSER
+ICLR RocketPy - MISSION PLANNER
 Maintained by Raihaan Usman and Luis Marques
 
 - Systems engineers describe high-level objectives and requirements

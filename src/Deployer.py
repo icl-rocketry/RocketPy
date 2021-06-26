@@ -1,12 +1,16 @@
 
 ''' 
-ICLR ROCKETPY - DEPLOYER
+ICLR RocketPy - DEPLOYER
 Maintained by Raihaan Usman and Krish Nair
 
-Designed to take a converged rocket design through the manufacturing process
-    - Manufacturing Planner to help define the manufacturing plan + draft an assembly guide
-    - Task Assigner inspired by the 'Responsible (group!) of engineers' philosophy
-    - Dynamic Gannt chart to handle project timelines and track bottlenecks
+The missing link between your final rocket design and flight!
+
+DEPLOYER brings 5 important capabilities to complete the RocketPy workflow-
+
+    - Manufacturing Planner to standardize manufacturing into unit tasks for each component
+    - Assembly Planner to standardize the assembly process for each modular interface
+    - Task Assigner inspired by the 'Responsible (group!) of Engineers' philosophy
+    - Dynamic Gantt to handle the vehicle production timeline and track bottlenecks
     - Tool Tracker to ensure no overlapping plans of work with the same tool dependency
 
 Planned Integrations
@@ -20,28 +24,33 @@ DOCUMENTATION
 
 Manufacturing Planner
 
-    1. For each Component:
+    1. For each COMPONENT in rocket file:
         (a) Select/define the manufacturing process(es) (i.e. roadmap from raw to final part)
         (b) Define target duration, priority and complexity scores
-        (c) Save details to Component within Rocket object
+        (c) Save job details to Component object within Rocket object
 
-    2. For each Interface:
+    2. For each INTERFACE in rocket file:
         (a) Select/define the integration process(es)
         (b) Define target duration, priority and complexity scores
-        (c) Save details to the Interface object within Rocket object
+        (c) Save job details to Interface object within Rocket object
 
-    3. Task Assigner - Provisionally assign the engineering group responsible for each component and interface
+    - Each 
 
-    4. Order the integration tasks (i.e. fitting each interface) to construct the Assembly Guide!
+Job Assigner
+    - Provisionally assign an engineering group responsible for each component and interface (job) based on engineer profile
 
 
-Dynamic Gannt chart / Calendar
+Assembly Guide
+    - Order integration tasks (i.e. fitting each interface) to construct the Assembly Guide!
 
-    1. Order the component manufacturing tasks by priority
-    2. Order the integration tasks as defined in the Assembly Guide
+
+Dynamic Gantt chart / Calendar
+
+    1. Order component manufacturing tasks by priority
+    2. Order integration tasks as prescribed in the Assembly Guide
     3. For each task, check the Group.availability attribute to calculate provisional slots for the defined duration
     4. Update the calendars of all engineers + the overall vehicle timeline
-    5. Update Gannt chart (with integration)
+    5. Update Gantt chart (with integration)
     6. Allow respective engineers to adjust their own tasks manually (timing + room) and to 'pin' them
     7. Re-run module to recalculate all floating tasks to avoid hardware conflicts, room occupancy limits, etc.
 
@@ -52,19 +61,17 @@ TO-DO
 
 Manufacting Planner:
 - Modify Rocket, Component and Interface classes to store the manufacturing plans
-- Write the Engineer() and Group() classes and library - implements name, year, familiar tools, experience, availability (individual + combined)
+- Write the Engineer() and Group() classes and library - implements name, year, familiar Tools, experience, availability (individual + combined)
 - Write the Tool() class and library - implements name, usage notes
-- Write the Process() class and library - implements name, description, hardware + room dependencies, complexity
+- Write the Process() class and library - implements name, description, Tool + Room dependencies, complexity
 - Write the CLI boilerplate for Deployer.py
 
 
-Dynamic Gannt chart:
+Dynamic Gantt chart:
 - Integrate Microsoft Calendar
 - Integrate with Excel/Teams/Power Apps/etc
 - Write the Room() class and library - implements number, building, address, max. occupancy, Tools dictionary (Tool:Quantity)
 
-
------------------------------
 '''
 
 import pickle
