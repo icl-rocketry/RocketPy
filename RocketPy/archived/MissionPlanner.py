@@ -17,7 +17,7 @@ E.g. Payload --> Mass, Dimensions, Flight objective, Class
 import pickle                                                                                           # For serialise/deserialise
 import libraries.rockets.Rocket as Rocket                                                               # Rocket base class
 import libraries.toolbox as toolbox                                                                     # Helper functions             
-import libraries.systems.Constraint as Constraint                                                       # Constraints base class
+import libraries.systems_constraints as systems                                                         # Design envelope calculations
 
 
 # List of all design constraints - remember these are ranges, not necessarily exact values
@@ -81,7 +81,7 @@ while True:
         
         if all(const in defined_constraints for const in enforced_constraints):
             rocket = Rocket.Rocket(name, defined_constraints, enforced_constraints)
-            # rocket = systems.calculate(rocket)
+            rocket = systems.calculate(rocket)
 
             rocket.save()
             break

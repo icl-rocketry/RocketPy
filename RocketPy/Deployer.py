@@ -61,7 +61,7 @@ TO-DO
 
 Manufacting Planner:
 - Modify Rocket, Component and Interface classes to store the manufacturing plans
-- Write the Engineer() and Group() classes and library - implements name, year, familiar Tools, experience, availability (individual + combined)
+- Write the Engineer() and Group() classes and library - implements name, team, year, familiar Tools, experience, availability (individual + combined)
 - Write the Tool() class and library - implements name, usage notes
 - Write the Process() class and library - implements name, description, Tool + Room dependencies, complexity
 - Write the CLI boilerplate for Deployer.py
