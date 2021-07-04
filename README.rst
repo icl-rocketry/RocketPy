@@ -24,7 +24,7 @@ A rocket maker.
 
 
 * Free software: MIT license
-* Documentation: https://rpycore.readthedocs.io.
+* Documentation: https://rpycore.readthedocs.io/en/main.
 
 
 Features
