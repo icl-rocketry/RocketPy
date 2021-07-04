@@ -10,4 +10,5 @@ Development Lead
 Contributors
 ------------
 
-None yet. Why not be the first?
+* Luis Marques <lfsm01@hotmail.com>
+* Krish Nair <krish.nair19@imperial.ac.uk>

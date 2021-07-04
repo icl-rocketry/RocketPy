@@ -32,13 +32,13 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/raihaan123/rpycore
+    $ git clone git://github.com/icl-rocketry/RocketPy
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/raihaan123/rpycore/tarball/master
+    $ curl -OJL git://github.com/icl-rocketry/RocketPy/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/raihaan123/rpycore
-.. _tarball: https://github.com/raihaan123/rpycore/tarball/master
+.. _Github repo: git://github.com/icl-rocketry/RocketPy
+.. _tarball: git://github.com/icl-rocketry/RocketPy/tarball/master
