@@ -15,7 +15,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/raihaan123/rpycore/issues.
+Report bugs at https://github.com/icl-rocketry/RocketPy/issues.
 
 If you are reporting a bug, please include:
 
