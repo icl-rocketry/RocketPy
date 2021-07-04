@@ -6,3 +6,9 @@ History
 ------------------
 
 * First release on PyPI.
+
+
+0.1.1 (2021-07-04)
+------------------
+
+* After I deleted it...
