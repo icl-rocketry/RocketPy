@@ -85,7 +85,7 @@ while True:
 
             rocket.save()
             break
-
+            
         else:
             print("\nPlease define all required constraints before saving\n")
             continue

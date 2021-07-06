@@ -17,8 +17,9 @@ class Component:
         self.density = 0
         self.mass = 0
         self.parameters = {}                                                        # {Parameter_name: [value, units]}
-        self.subparts = []
+        self.subparts = []                                                          # List of child component objects
         self.id = None
+        self.job = []                                                               # [Process1, Process2] --> List of Process() objects
 
 
     def load_parameters(self, parameters):
@@ -26,7 +27,11 @@ class Component:
 
 
     def add_subpart(self, subpart):
-        self.subparts.append(subpart)                                               # List of child component objects
+        self.subparts.append(subpart)
+
+    
+    def add_process(self, process):
+        self.job.append(process)
 
 
     def export(self, path="./exports/"):
