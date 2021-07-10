@@ -297,7 +297,3 @@ for i in range(len(tasks_copy)-1):
 print("Ordered List of Integration Tasks:")
 print(f"{i+1}. {tasks[i]} "for i in range(len(tasks)-1))
 
-
-
-
-
