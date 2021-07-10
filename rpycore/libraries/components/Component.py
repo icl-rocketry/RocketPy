@@ -35,4 +35,4 @@ class Component:
 
 
     def export(self, path="./exports/"):
-        pickle.dump(self, open(path+self.name+"_"+self.id+".", "wb"))
+        pickle.dump(self, open(path+self.name+"_"+self.id+".rpy", "wb"))
