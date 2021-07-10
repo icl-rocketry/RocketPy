@@ -106,11 +106,69 @@ for component in rocket.components:
 
         # The whole "prcoessess" list defines 1 job
 
-        if ch == len(manufacturing_processes) - 1:
+        if ch == len(manufacturing_processes) - 1:                                                                      #If it is a Custom Process
+
+            #Specify name:
             name = input("Name this process: ")
+            #Specify description:
             desc = input("Add a generic description for this process: ")
+            #Specify extra_description:
             extra_desc = input("Add a specific description for this component: ")
-            component.add_process(Process(name, desc, extra_desc))                                                      # Adding to the component job (list)
+
+            process=Process(name, desc, extra_desc) #Create a process object
+
+            '''
+            #Specify tools:
+            print("----------Tools----------")
+            tools=[]
+            while True:
+                ch1=int(input("Tool Options: 1.Add tool 2.Delete tool 3.Done"))
+
+                if ch1==1:
+
+                    tool=input("Add tool: ")
+                    tools.append(tool)
+                elif ch1==2:
+
+                    tool=input("Specify tool to delete: ")
+                    if tool not in tools:
+                        print("Tool does not exist in list!")
+                        continue
+                    else:
+                        tools.delete(tool)
+                else:
+                    break
+            process.add_tools(tools)
+
+            #Specify room:
+            print("----------Room----------") #!!!I've left the room to be specified as a string for now but it has to be an object (Pls change later)!!!
+            rooms=[]
+            while True:
+                ch1=int(input("Room Options: 1.Add room 2.Delete room 3.Done"))
+
+                if ch1==1:
+
+                    room=input("Add room: ")
+                    rooms.append(room)
+                elif ch1==2:
+
+                    room=input("Specify room to delete: ")
+                    if room not in rooms:
+                        print("Room does not exist in list!")
+                        continue
+                    else:
+                        rooms.delete(tool)
+                else:
+                    break
+            process.add_rooms(rooms)
+
+            #Specify complexity
+            print("----------Complexity----------")
+            complexity=input("Enter complexity of the process")    
+            process.add_complexity(complexity) #!!!For now I've left it as a simple integer to be specified and not as a fxn of the list of tools complexities (Pls change later)!!!    
+        '''
+            component.add_process(process)                                                      # Adding to the component job (list)
+
 
         elif ch != len(manufacturing_processes):
             manufacturing_processes[ch-1].mod_extra_desc(input(("Add a specific description for this component: ")))
@@ -142,6 +200,58 @@ for interface in rocket.interfaces:
             name = input("Name this process: ")
             desc = input("Add a generic description for this process: ")
             extra_desc = input("Add a specific description for this interface: ")
+
+            #The below was copied from the above component section (IT WILL OBVIOUSLY HAVE TO BE EDITED):
+            '''
+            #Specify tools:
+            print("----------Tools----------")
+            tools=[]
+            while True:
+                ch1=int(input("Tool Options: 1.Add tool 2.Delete tool 3.Done"))
+
+                if ch1==1:
+
+                    tool=input("Add tool: ")
+                    tools.append(tool)
+                elif ch1==2:
+
+                    tool=input("Specify tool to delete: ")
+                    if tool not in tools:
+                        print("Tool does not exist in list!")
+                        continue
+                    else:
+                        tools.delete(tool)
+                else:
+                    break
+            process.add_tools(tools)
+
+            #Specify room:
+            print("----------Room----------") #!!!I've left the room to be specified as a string for now but it has to be an object (Pls change later)!!!
+            rooms=[]
+            while True:
+                ch1=int(input("Room Options: 1.Add room 2.Delete room 3.Done"))
+
+                if ch1==1:
+
+                    room=input("Add room: ")
+                    rooms.append(room)
+                elif ch1==2:
+
+                    room=input("Specify room to delete: ")
+                    if room not in rooms:
+                        print("Room does not exist in list!")
+                        continue
+                    else:
+                        rooms.delete(tool)
+                else:
+                    break
+            process.add_rooms(rooms)
+
+            #Specify complexity
+            print("----------Complexity----------")
+            complexity=input("Enter complexity of the process")    
+            process.add_complexity(complexity) #!!!For now I've left it as a simple integer to be specified and not as a fxn of the list of tools complexities (Pls change later)!!!    
+        '''
             interface.add_process(Process(name, desc, extra_desc))                                                      # Adding to the component job (list)
 
         elif ch != len(integration_processes):
@@ -159,8 +269,35 @@ for interface in rocket.interfaces:
 
 
 #Job Assigner
-
+print("x----------Job Assigner----------x")
 
 
 #Assembly Guide
+
+#Note: I'm assumming we have to ordere the interface processes (given above). I could be stupid, so recheck later
+
+print("x----------Assembly Guide----------x")
+
+tasks_copy=[] #Dummy List that will contain each interface's job
+tasks=[]      #ORDERED List of each interface's job
+
+for interface in rocket.interfaces:
+    job=interface.job
+    tasks_copy.append(job)
+
+
+print("List of integration tasks:")
+print(f"{i+1}. {tasks_copy[i]} "for i in range(len(tasks_copy)-1))
+
+for i in range(len(tasks_copy)-1):
+    ch=input(f"Choose task (enter the above corresponding number) for Task {i+1}: ")
+    tasks.append(tasks_copy[ch-1])
+
+
+print("Ordered List of Integration Tasks:")
+print(f"{i+1}. {tasks[i]} "for i in range(len(tasks)-1))
+
+
+
+
 
