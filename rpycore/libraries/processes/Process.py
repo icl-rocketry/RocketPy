@@ -19,4 +19,4 @@ class Process:
 
 
     def mod_extra_desc(self, extra_desc):
-        self.extra_desc = extra_desc
+        self.extra_desc = extra_desc #EXTRA DESC
