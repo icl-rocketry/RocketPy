@@ -1,32 +1,16 @@
-# Component superclass definition
+# Group superclass definition
 # Maintained by Raihaan Usman and Luis Marques
 
 import pickle
 
 
-class Component:
+class Group:
     
-    def __init__(self, name):
+    def __init__(self, group_id, engineers=[]):
         
         # Defined things
-        self.name = name
-        self.material = "None"
-
-        # Derived things
-        self.top_position = []                                                      # [X, r and phi] coordinate representation
-        self.density = 0
-        self.mass = 0
-        self.parameters = {}                                                        # {Parameter_name: [value, units]}
-        self.subparts = []
-        self.id = None
-
-
-    def load_parameters(self, parameters):
-        self.parameters = self.parameters | parameters                              # For Python>=3.9 - not backwards compatible!!
-
-
-    def add_subpart(self, subpart):
-        self.subparts.append(subpart)                                               # List of child component objects
+        self.group_id = group_id
+        self.engineers = engineers
 
 
     def export(self, path="./exports/"):
