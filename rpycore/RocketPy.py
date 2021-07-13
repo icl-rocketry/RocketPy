@@ -13,15 +13,8 @@ from flask import Flask, render_template, request, jsonify          # The nice F
 import streamlit as st                                              # The pretty Streamlit web framework
 
 
-# st.write(
-# """
-# # RocketPy.
-# The official rocket maker.
 
-# """
-# )
-
-# app = Flask(__name__)
+app = Flask(__name__)
 
 
 if not hasattr(st, 'already_started_server'):
@@ -46,9 +39,16 @@ if not hasattr(st, 'already_started_server'):
 
     app.run(port=8888)
 
+st.write(
+"""
+# RocketPy.
+The official rocket maker.
 
-# We'll never reach this part of the code the first time this file executes!
+"""
+)
 
-# Your normal Streamlit app goes here:
-x = st.slider('Pick a number')
-st.write('You picked:', x)
+# # We'll never reach this part of the code the first time this file executes!
+
+# # Your normal Streamlit app goes here:
+# x = st.slider('Pick a number')
+# st.write('You picked:', x)

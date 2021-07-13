@@ -37,15 +37,15 @@ Manufacturing Planner
 
 Job Assigner
 
-    (1) Provisionally assign engineering groups based on -
+    1. Provisionally assign engineering groups based on -
         (a) Teammate choices
         (b) Engineering capabilities
         (c) Availabilities / Time zones
-    (2) Intelligently assign jobs to engineering groups
+    2. Intelligently assign jobs to engineering groups
 
 
 Assembly Guide
-    - Order integration tasks (i.e. fitting each interface) to construct the Assembly Guide!
+    - Order integration jobs (i.e. fitting each interface) to construct the Assembly Guide!
 
 
 Dynamic Gantt chart / Calendar
