@@ -9,6 +9,42 @@ Maintained by Raihaan Usman and Luis Marques
 - Creates an F360Server object to interface with the Fusion 360 RPyLinker add-in (client)
 - Maintains the dynamic Bill of Materials
 
+-------------
+DOCUMENTATION
+-------------
+
+Bill of Materials
+
+1. Create excel workbook containing:
+    -Components as worksheets 
+    -Sub-components as rows
+    -Sub-component Material, Volume, Weight, Quantity, Unit Cost, Total Cost, Reference as columns
+    -TOTAL OVERALL COST of a Component by adding Total Cost of each sub-component
+
+2. Edit a previously created BoM workbook at will
+
+3. Save workbook in the specific directory
+
+4. BoM workbook data can be accessed by Microsoft PowerApp and displayed for user
+
+5. [ Database of Sub-component objects can be created and later manipulated and then re-converted into Excel format ] ~Idea?
+
+
+
+
+
+
+
+-----
+TO-DO
+-----
+
+Bill of Materials:
+-Convert workbook creation+manipulation code into user-friendly streamlit
+-Demonstrate Microsoft PowerApp integration with the Excel Bill of Materials workbook
+-[ Create a class for Sub-component ] ~Idea?
+
+
 '''
 
 import pickle
