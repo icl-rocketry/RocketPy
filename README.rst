@@ -53,13 +53,11 @@ Parts Designer
 Credits
 -------
 
-Development Lead: Raihaan Usman: raihaan.usman@gmail.com
+Development Lead
+****************
+Raihaan Usman: raihaan.usman@gmail.com
 
-Contributors: Luis Marques: lfsm01@hotmail.com, Krish Nair: krish.nair19@imperial.ac.uk
-
-
-
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+Contributors
+************
+Luis Marques: lfsm01@hotmail.com
+Krish Nair: krish.nair19@imperial.ac.uk
