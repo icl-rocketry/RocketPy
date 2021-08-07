@@ -19,7 +19,8 @@ A rocket maker.
 
 
 
-### Release 1.0.0 - Main Deliverables
+Release 1.0.0 - Main Deliverables
+---------------------------------
 
 - Web-based control panel for RocketPy - hosted on Heroku PaaS servers - connected to `rpycore` (PyPI package) for native integrations
 - Members securely login with GitHub OAuth and gain access rights as defined by their assigned ICLR role
@@ -32,14 +33,16 @@ A rocket maker.
 
 
 
-#### Mission Analyser
+Mission Analyser
+****************
 
 - Integrate the ThrustCurve API - https://www.thrustcurve.org/info/api.html - looks easy enough
 - Also make generic Engine class for custom definitions
 
 
 
-#### Parts Designer
+Parts Designer
+**************
 
 - STEP exports from F360 - save to Rocket class on request? Will be saving parametric quantities anyway but for complete vehicle reconstruction, may need to record component-level design histories? Seems excessive. Remember that F360 is an official RocketPy dependency, at least for release 1.0.0, so does this matter if all leads/engineers have write access (via cloud - version control is assumed robust) to the vehicle CAD? Probably not.
 - 
