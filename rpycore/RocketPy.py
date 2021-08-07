@@ -26,8 +26,7 @@ if not hasattr(st, 'already_started_server'):
         The first time this script executes it will run forever because it's
         running a Flask server.
 
-        Just close this browser tab and open a new one to see your Streamlit
-        app.
+        Refresh to see RocketPy.
     ''')
 
     app = Flask(__name__)
