@@ -1,33 +1,23 @@
-# Component superclass definition
-# Maintained by Raihaan Usman and Luis Marques
+# Engineer class definition
+# Maintained by Raihaan Usman and Krish Nair
 
 import pickle
 
 
-class Component:
+class Engineer:
     
-    def __init__(self, name):
-        
-        # Defined things
+    def __init__(self, name, shortcode, year=1, tools=[], exp=0):
+
+        #Defined
         self.name = name
-        self.material = "None"
-
-        # Derived things
-        self.top_position = []                                                      # [X, r and phi] coordinate representation
-        self.density = 0
-        self.mass = 0
-        self.parameters = {}                                                        # {Parameter_name: [value, units]}
-        self.subparts = []
-        self.id = None
+        self.shortcode = shortcode
+        self.year = year
+        self.tools = tools
+        self.exp = exp
 
 
-    def load_parameters(self, parameters):
-        self.parameters = self.parameters | parameters                              # For Python>=3.9 - not backwards compatible!!
-
-
-    def add_subpart(self, subpart):
-        self.subparts.append(subpart)                                               # List of child component objects
-
-
-    def export(self, path="./exports/"):
+    def export(self, path="./libraries/engineers/"):
         pickle.dump(self, open(path+self.name+"_"+self.id+".", "wb"))
+
+
+

@@ -4,30 +4,19 @@
 import pickle
 
 
-class Component:
+class Process:
     
-    def __init__(self, name):
+    def __init__(self, name="", desc="", extra_desc=""):
         
         # Defined things
         self.name = name
-        self.material = "None"
-
-        # Derived things
-        self.top_position = []                                                      # [X, r and phi] coordinate representation
-        self.density = 0
-        self.mass = 0
-        self.parameters = {}                                                        # {Parameter_name: [value, units]}
-        self.subparts = []
-        self.id = None
+        self.desc = desc
+        self.extra_desc = extra_desc
 
 
-    def load_parameters(self, parameters):
-        self.parameters = self.parameters | parameters                              # For Python>=3.9 - not backwards compatible!!
+    def mod_desc(self, desc):
+        self.desc = desc
 
 
-    def add_subpart(self, subpart):
-        self.subparts.append(subpart)                                               # List of child component objects
-
-
-    def export(self, path="./exports/"):
-        pickle.dump(self, open(path+self.name+"_"+self.id+".", "wb"))
+    def mod_extra_desc(self, extra_desc):
+        self.extra_desc = extra_desc

@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="CBhhSlvV4TSZD_NFqNw8" name="Page-1">
-        <mxGraphModel dx="1204" dy="574" grid="1" gridSize="5" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" background="#E6E6E6" math="0" shadow="0">
+        <mxGraphModel dx="1204" dy="830" grid="1" gridSize="5" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" background="#E6E6E6" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -261,10 +261,10 @@
                 <mxCell id="SwX5QnUCMjqNOXKMfuhw-121" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=45;fontColor=#CC0000;startArrow=classic;startFill=1;endArrow=classic;endFill=1;strokeColor=#000000;strokeWidth=3;" parent="1" source="SwX5QnUCMjqNOXKMfuhw-116" target="SwX5QnUCMjqNOXKMfuhw-120" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="SwX5QnUCMjqNOXKMfuhw-116" value="GitClient" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+                <mxCell id="SwX5QnUCMjqNOXKMfuhw-116" value="GitClient" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Verdana;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="2263.5" y="1030" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="SwX5QnUCMjqNOXKMfuhw-118" value="REST (HTTPs)" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontFamily=Verdana;" parent="1" vertex="1">
+                <mxCell id="SwX5QnUCMjqNOXKMfuhw-118" value="REST (HTTPs)" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontFamily=Verdana;fontColor=#000000;" parent="1" vertex="1">
                     <mxGeometry x="2275" y="955" width="40" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="SwX5QnUCMjqNOXKMfuhw-119" value="Rocket object" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontFamily=Verdana;" parent="1" vertex="1">

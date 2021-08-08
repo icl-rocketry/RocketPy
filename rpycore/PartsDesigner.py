@@ -12,9 +12,7 @@ Maintained by Raihaan Usman and Luis Marques
 '''
 
 import pickle
-import libraries.components.Component as Component
-import libraries.interfaces.Interface as Interface
-import libraries.toolbox as toolbox
+from libraries import Component, Interface, toolbox
 
 
 # Load rocket object

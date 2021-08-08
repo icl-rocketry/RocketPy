@@ -12,10 +12,15 @@ class Interface:
         self.name = name
         self.attaching = component_IDs
         self.id = None
+        self.job = []
 
     
     def enforce(self):
         None
+
+    
+    def add_process(self, process):
+        self.job.append(process)
 
     
     def save(self, path="./interfaces/"):
