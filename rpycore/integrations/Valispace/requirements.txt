@@ -1,2 +1,0 @@
-valispace==0.1.16
-lxml==4.6.3
