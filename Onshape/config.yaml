@@ -1,0 +1,9 @@
+prod_api_keys:
+  base_url: "https://cad.onshape.com"
+  secret_key: qsZnzZWODkzhA968fFfUFqw0cYsuMRSCIUnYAGL2uVmZKHWh
+  access_key: AucI9MbuHQlIBqKLVkQTKMRO
+  client_id: Y7C2GRE24UP2LNFIJKODWAWYY6FMI5PJIULPKRA=
+  client_secret: UMLDSMMGJ537QW2DA3GQ5L7H3LFSM2MZX7AMPO3NG4IJGS5LYHJA====
+  redirect_uri: http://localhost:9000
+  oauth_authorization_method: localhost_server
+default_stack: prod_api_keys
